@@ -1,3 +1,4 @@
+from decimal import Rounded
 from tkinter import *
 import sqlite3
 from tkinter import ttk
@@ -26,9 +27,9 @@ class Register:
 
 
 
-# bg image
+#============= bg image
 
-        my_image=Image.open("a1.jpg")
+        my_image=Image.open("college.jpg")
         resized_image=my_image.resize((1550,800))
 
         self.bg=ImageTk.PhotoImage(resized_image)
@@ -36,82 +37,85 @@ class Register:
         bg_lbl.place(x=0,y=0,relwidth=1,relheight=1)
         
 
-# left image
-        my_image=Image.open("stu.png")
-        resized_image=my_image.resize((500,700))
+#========= left image============
+
+        my_image=Image.open("final logo.png")
+        resized_image=my_image.resize((450,400))
         
         self.bg1=ImageTk.PhotoImage(resized_image)
         bg1_lbl=Label(self.root,image=self.bg1)
-        bg1_lbl.place(x=55,y=100,width=470,height=520)
+        bg1_lbl.place(x=55,y=100,width=500,height=500)
 
 
-######### main frame ########
+#########==== main frame====== ########
        
-        frame=Frame(self.root,bg="white")
-        frame.place(x=520,y=100,width=800,height=550)
+        frame=Frame(self.root,bg="skyblue")
+        frame.place(x=520,y=100,width=650,height=500)
+      
 
-        register_lbl=Label(frame,text="REGISTER HERE",font=("times new roman",20,"bold"),fg="darkgreen",bg="white")
+        register_lbl=Label(frame,text="REGISTER HERE",font=("times new roman",20,"bold"),fg="red",bg="skyblue")
         register_lbl.place(x=20,y=20)
 
 
-####### labels and Entry ######
+#######========= labels and Entry ######
         
-        fname=Label(frame, text="First Name",font=("times of roman",15,"bold"),bg="white")
+        fname=Label(frame, text="First Name",font=("times of roman",15,"bold"),bg="skyblue")
         fname.place(x=50,y=100)
 
         fname_entry=ttk.Entry(frame,font=("times new  roman",15,"bold"))
         fname_entry.place(x=50,y=130,width=250)
 
 
-#######______row1########
-        lname=Label(frame, text="Last Name",font=("times of roman",15,"bold"),bg="white",fg="black")
+#######=====______row1########
+
+        lname=Label(frame, text="Last Name",font=("times of roman",15,"bold"),bg="skyblue",fg="black")
         lname.place(x=370,y=100)
 
         self.txt_lname=ttk.Entry(frame,textvariable=self.var_fname, font=("times new roman",15))
         self.txt_lname.place(x=370,y=130,width=250)
 
 
-#########_------row2
+#########=========_------row2
  
-        contact=Label(frame,text="Contact No",font=("times new roman",15,"bold"),bg="white",fg="black")
+        contact=Label(frame,text="Contact No",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         contact.place(x=50,y=170)
 
         self.txt_contact=ttk.Entry(frame,textvariable=self.var_lname,font=("times new roman",15))
         self.txt_contact.place(x=50,y=200,width=250)
 
 
-        email=Label(frame,text="Email",font=("times new roman",15,"bold"),bg="white",fg="black")
+        email=Label(frame,text="Email",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         email.place(x=370,y=170)
          
         self.txt_email=ttk.Entry(frame,textvariable=self.var_email,font=("times new roman",15))
         self.txt_email.place(x=370,y=200,width=250)
 
-#_------row3-----
+#_=========------row3-----
 
-        security_Q=Label(frame,text="Select Security Questions",font=("times new roman",15,"bold"),bg="white",fg="black")
+        security_Q=Label(frame,text="Select Security Questions",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         security_Q.place(x=50,y=240)
         
         self.combo_security_Q=ttk.Combobox(frame,textvariable=self.var_SecurityQ,font=("times new roman",15,"bold"),state="readonly")
-        self.combo_security_Q["values"]=("Select","Your School's name","Your major subject","Your Guardian's name")
+        self.combo_security_Q["values"]=("Select","Your School's name","Your major subject","Your High School")
         self.combo_security_Q.place(x=50,y=270,width=250)
         self.combo_security_Q.current(0)
 
-        security_A=Label(frame,text="Select Security Answers",font=("times new roman",15,"bold"),bg="white",fg="black")
+        security_A=Label(frame,text="Select Security Answers",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         security_A.place(x=370,y=240)
         
         self.txt_security=ttk.Entry(frame,textvariable=self.var_SecurityA,font=("times new roman",15))
         self.txt_security.place(x=370,y=270,width=250)
 
-##-----row4---
+##========-----row4---
 
         
-        pswd=Label(frame,text="Password",font=("times new roman",15,"bold"),bg="white",fg="black")
+        pswd=Label(frame,text="Password",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         pswd.place(x=50,y=310)
         
         self.txt_pswd=ttk.Entry(frame,textvariable=self.var_pass,font=("times new roman",15))
         self.txt_pswd.place(x=50,y=340,width=250)
 
-        confirm_pswd=Label(frame,text="Confirm Password",font=("times new roman",15,"bold"),bg="white",fg="black")
+        confirm_pswd=Label(frame,text="Confirm Password",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         confirm_pswd.place(x=370,y=310)
 
         self.txt_confirm_pswd=ttk.Entry(frame,textvariable=self.var_confpass,font=("times new roman",15))
@@ -119,22 +123,22 @@ class Register:
 
 ### ###---check button----
         self.var_check=IntVar()
-        self.checkbtn=Checkbutton(frame,variable=self.var_check,text="I Agree The Terms And Conditions",font=("times new roman",12,"bold"),onvalue=1,offvalue=0)
+        self.checkbtn=Checkbutton(frame,variable=self.var_check,text="I Agree The Terms And Conditions",font=("times new roman",12,"bold"),bg="skyblue",fg="black",onvalue=1,offvalue=0)
         self.checkbtn.place(x=50,y=380)
 
-######-----Buttons------
+######=======-----Buttons------
     
         img=Image.open('rg.jpg')
         img=img.resize((200,45),Image.ANTIALIAS)
         self.photoimage=ImageTk.PhotoImage(img)
-        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"))
+        b1=Button(frame,image=self.photoimage,command=self.register_data,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         b1.place(x=10,y=420,width=200)
  
 
         img1=Image.open('lg.jpg')
         img1=img1.resize((200,55),Image.ANTIALIAS)
         self.photoimage1=ImageTk.PhotoImage(img1)
-        b1=Button(frame,image=self.photoimage1,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"))
+        b1=Button(frame,image=self.photoimage1,borderwidth=0,cursor="hand2",font=("times new roman",15,"bold"),bg="skyblue",fg="black")
         b1.place(x=330,y=420,width=300)
 
  
